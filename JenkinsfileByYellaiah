@@ -4,7 +4,7 @@ node{
     def buildnumber = BUILD_NUMBER
     stage("code checkout")
     {
-        git 'https://github.com/yellaiah56/sample-web-project.git
+        git 'https://github.com/yellaiah56/sample-web-project.git'
     }
     
     stage("Build")
