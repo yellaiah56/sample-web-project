@@ -20,5 +20,12 @@ tools{
                 sh 'docker build -t yellaiah56/webproject:1 . '
             }
         }
+        stage('docker login'){
+        steps{
+        withCredentials([string(credentialsId: 'dockerhub_password', variable: 'password')]) {
+    sh 'docker login -u yellaiah56 -p $password'
+}
+        }
+        }
     }
 }
