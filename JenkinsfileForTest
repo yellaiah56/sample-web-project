@@ -16,11 +16,12 @@ tools{
         }
         }
         stage("build image"){
-        when {
+       /* when {
          expression{
             return env.GIT_BRANCH == "origin/master"
                    }
-            }
+            } */
+            
             steps{
                 sh 'docker build -t yellaiah56/webproject:1 . '
             }
