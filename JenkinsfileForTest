@@ -44,7 +44,7 @@ tools{
         }
         }
         stage('deploy'){
-        sh 'docker run --name webcontainer -p 9090:8080 yellaiah56/webproject:1
+        sh 'docker run --name webcontainer -p 9090:8080 yellaiah56/webproject:1'
         sh 'docker ps'
         }
         
