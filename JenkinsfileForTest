@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('docker version') {
+            steps {
+                sh "docker --version"
+            }
+        }
+        stage("git"){
+            steps{
+                sh 'git --version'
+            }
+        }
+        stage("build image"){
+            steps{
+                sh 'docker build -t yellaiah56/webproject:1 . '
+            }
+        }
+    }
+}
