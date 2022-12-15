@@ -27,5 +27,10 @@ tools{
 }
         }
         }
+        stage('docker image push'){
+        steps{
+        sh 'docker push yellaiah56/webproject:1'
+        }
+        }
     }
 }
