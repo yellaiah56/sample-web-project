@@ -3,6 +3,9 @@ pipeline {
 tools{
      maven 'maven3.8.6' 
   }
+  environment{
+  BranchName = {"master","test","dev"}
+  }
     stages {
         stage('checkout') {
             steps {
