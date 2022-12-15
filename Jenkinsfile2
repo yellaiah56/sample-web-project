@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+tools{
+     maven 'maven3.8.6' 
+  }
+    stages {
+        stage('checkout') {
+            steps {
+                git branch: '${BranchName}', credentialsId: 'GitHub', url: 'https://github.com/yellaiah56/sample-web-project.git'
+            }
+        }
+    }
+}
