@@ -23,7 +23,7 @@ tools{
             } */
             
             steps{
-                sh "docker build -t yellaiah56/webproject:${env.BUILD_NUMBER} ."
+                sh "docker build -t yellaiah56/web_project:${env.BUILD_NUMBER} ."
             }
         }
         stage('docker image verify'){
