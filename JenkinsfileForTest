@@ -1,16 +1,19 @@
 pipeline {
     agent any
-
+tools{
+     maven 'maven3.8.6' 
+  }
+  
     stages {
-        stage('docker version') {
-            steps {
-                sh "docker --version"
-            }
+        stage('checke out code'){
+        steps{
+        git branch: 'test', url: 'https://github.com/yellaiah56/sample-web-project.git'
         }
-        stage("git"){
-            steps{
-                sh 'git --version'
-            }
+      }
+        stage('build'){
+        steps{
+        sh 'mvn clean package'
+        }
         }
         stage("build image"){
             steps{
