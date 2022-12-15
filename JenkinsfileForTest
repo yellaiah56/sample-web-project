@@ -23,7 +23,7 @@ tools{
             } */
             
             steps{
-                sh 'docker build -t yellaiah56/webproject:1 . '
+                sh 'docker build -t yellaiah56/webproject:${env.BUILD_NUMBER} . '
             }
         }
         stage('docker image verify'){
@@ -33,14 +33,14 @@ tools{
         }
         stage('docker login'){
         steps{
-        withCredentials([string(credentialsId: 'dockerhub_password', variable: 'password')]) {
+        withCredentials([string(credentialsId: 'dockerhub_pwd', variable: 'password')]) {
     sh 'docker login -u yellaiah56 -p $password'
-}
-        }
-        }
+        } 
+          }
+            }
         stage('docker image push'){
         steps{
-        sh 'docker push yellaiah56/webproject:1'
+        sh 'docker push yellaiah56/web_project:${env.BUILD_NUMBER}'
         }
         }
         stage('deploy'){
@@ -48,7 +48,7 @@ tools{
            message "Do you want to deploy to production"
             }
         steps{
-        sh 'docker run --name webcontainer -p 9090:8080 yellaiah56/webproject:1'
+        sh 'docker run --name webcontainer -p 9090:8080 yellaiah56/web_project:${env.BUILD_NUMBER}'
         sh 'docker ps'
         }
         }
